@@ -19,5 +19,13 @@ export default function App() {
     // call Open Weather API
   };
 
-  return <div>Hello World!</div>;
+  return (
+    <div>
+      <h1>What's the weather?</h1>
+      <form>
+        <input type="text" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 }
