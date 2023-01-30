@@ -4,7 +4,7 @@ import "./App.css";
 export default function App() {
   const [loading, setLoading] = useState(false);
   const [location, setLocation] = useState("");
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -32,26 +32,36 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div className="container justify-content-center">
       <h1>What's the weather?</h1>
-      <form onSubmit={handleSubmit}>
-        <label forhtml="location">Location:</label>
-        <input
-          type="text"
-          name="location"
-          className="form-control"
-          placeholder="city name"
-          value={location}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {weather && (
-        <div className="container">
-          {location}
-          {weather.main.temp} degrees
+      <div className="row">
+        <div id="form" className="col-4">
+          <form onSubmit={handleSubmit}>
+            <label forhtml="location">
+              <h4>Location:</h4>
+            </label>
+            <input
+              type="text"
+              name="location"
+              className="form-control"
+              placeholder="city name"
+              value={location}
+              onChange={handleChange}
+            />
+            <button className="btn btn-primary" type="submit">
+              Submit
+            </button>
+          </form>
         </div>
-      )}
+        <div className="col-4">
+          {weather && (
+            <div className="container">
+              <p>{weather.name}</p>
+              <p>{weather.main.temp.toFixed(1)} degrees Celsius</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
@@ -60,3 +70,6 @@ export default function App() {
 // 2. Isn't console logging weather with data, but seems to be pulling it.
 // 3. Put code for errors.
 // 4. Look into what to do with loading...not sure.
+// 5. Styling.
+
+//This was a useful resource: https://bithacker.dev/fetch-weather-openweathermap-api-javascript

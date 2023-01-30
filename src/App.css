@@ -1,0 +1,18 @@
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#form {
+  margin: auto;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+}
+
+input {
+  margin-bottom: 1rem;
+}
