@@ -77,6 +77,7 @@ export default function App() {
         </div>
       </div>
       <div id="five-day" className="col">
+        {/* Make this area conditionally render */}
         <h2>5 Day Forecast</h2>
       </div>
       <footer>
@@ -92,8 +93,8 @@ export default function App() {
   );
 }
 // TODO:
-//
-//
+// 1. 5 day forecast section
+// 2. 5 day forecast function
 // 3. Put code for errors.
 // 4. Look into what to do with loading...not sure.
 // 5. Styling.
