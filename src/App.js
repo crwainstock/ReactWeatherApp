@@ -53,13 +53,22 @@ export default function App() {
             </button>
           </form>
         </div>
-        <div className="col-4">
+        <div className="col-5">
           {weather && (
-            <div className="card">
+            <div className="card shadow p-3 mb-5 bg-white rounded">
               <div className="card-body">
-                <h5 className="card-title">{weather.name}</h5>
-                <p>{weather.main.temp.toFixed(1)} °C</p>
-                <p>{weather.main.temp.toFixed(1) * 1.8 + 32} °F</p>
+                <h4 className="card-title">{weather.name}</h4>
+                <div className="row">
+                  <h6 className="col">{weather.main.temp.toFixed(1)} °C</h6>
+                  <h6 className="col">
+                    {(weather.main.temp.toFixed(1) * 1.8 + 32).toFixed(1)} °F
+                  </h6>
+                </div>
+                {weather.main.temp < 0 ? (
+                  <img src="./icons8-cold-64.png" />
+                ) : (
+                  <img src="./icons8-weather-64.png" />
+                )}
               </div>
             </div>
           )}
