@@ -40,8 +40,16 @@ export default function App() {
       return message;
     }
     const data = await response.json();
+
     setForecast(data);
-    console.log(forecast);
+
+    // Could I do something like this to format the date? But loop through the data (i)
+    // let date = new Intl.DateTimeFormat("en-US", {
+    //   year: "numeric",
+    //   month: "2-digit",
+    //   day: "2-digit",
+    // }).format(forecast.list[i].dt); // 01/11/2021
+    // console.log(date);
   }
 
   const handleSubmit = (e) => {
@@ -105,7 +113,7 @@ export default function App() {
           <h2>5 Day Forecast for {forecast.city.name}</h2>
           <div className="row">
             <div className="card shadow p-3 md-white rounded">
-              <h3>{forecast.list[0].dt_text}</h3>
+              <h3>{forecast.list[0].dt}</h3>
               <h4>{forecast.list[0].main.temp.toFixed(1)} °C</h4>
             </div>
             <div className="card shadow p-3 md-white rounded"></div>
