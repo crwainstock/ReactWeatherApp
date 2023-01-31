@@ -19,6 +19,11 @@ export default function App() {
     let response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
     );
+    if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      console.log(message);
+      return message;
+    }
     let data = await response.json();
     // console.log(data); //Getting data, ok.
     setWeather(data); //Seems to be working
@@ -26,7 +31,7 @@ export default function App() {
 
   async function getForecast() {
     let response = await fetch(
-      `api.openweathermap.org/data/2.5/forecast?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
     );
     //I'm not sure what I'm doing here.
     if (!response.ok) {
@@ -36,6 +41,7 @@ export default function App() {
     }
     const data = await response.json();
     setForecast(data);
+    console.log(forecast);
   }
 
   const handleSubmit = (e) => {
@@ -49,11 +55,11 @@ export default function App() {
 
   return (
     <div className="container justify-content-center">
-      <h1>Weather?</h1>
+      <h1>Weather Today</h1>
       <div className="row">
         <div id="form" className="col-4">
           <form onSubmit={handleSubmit}>
-            <label forhtml="location">
+            <label htmlFor="location">
               <h4>Location:</h4>
             </label>
             <input
@@ -93,21 +99,23 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div id="five-day" className="col">
-        {/* Make this area conditionally render */}
-        <h2>5 Day Forecast</h2>
-        <div className="row">
-          {forecast && (
-            <>
-              <div className="col-3"></div>
-              <div className="col-3"></div>
-              <div className="col-3"></div>
-              <div className="col-3"></div>
-              <div className="col-3"></div>
-            </>
-          )}
+
+      {forecast && (
+        <div id="five-day" className="col">
+          <h2>5 Day Forecast for {forecast.city.name}</h2>
+          <div className="row">
+            <div className="card shadow p-3 md-white rounded">
+              <h3>{forecast.list[0].dt_text}</h3>
+              <h4>{forecast.list[0].main.temp.toFixed(1)} °C</h4>
+            </div>
+            <div className="card shadow p-3 md-white rounded"></div>
+            <div className="card shadow p-3 md-white rounded"></div>
+            <div className="card shadow p-3 md-white rounded"></div>
+            <div className="card shadow p-3 md-white rounded"></div>
+          </div>
         </div>
-      </div>
+      )}
+
       <footer>
         <p>
           Coded by{" "}
