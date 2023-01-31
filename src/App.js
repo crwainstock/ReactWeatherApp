@@ -77,6 +77,12 @@ export default function App() {
       <div id="five-day" className="col">
         <h2>5 Day Forecast</h2>
       </div>
+      <footer>
+        <p>Coded by Crystal</p>
+        <p>
+          Made with <a href="https://openweathermap.org/">Open Weather API</a>
+        </p>
+      </footer>
     </div>
   );
 }

@@ -38,3 +38,12 @@ img {
 .card {
   margin-bottom: 1rem;
 }
+
+footer {
+  padding-top: 2rem;
+  text-align: center;
+  font-size: small;
+}
+footer p {
+  margin-bottom: 0;
+}
