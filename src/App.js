@@ -64,11 +64,13 @@ export default function App() {
                     {(weather.main.temp.toFixed(1) * 1.8 + 32).toFixed(1)} °F
                   </h6>
                 </div>
-                {weather.main.temp && (
-                  <img
-                    src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                  />
-                )}
+                <div id="weather-icon">
+                  {weather.main.temp && (
+                    <img
+                      src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           )}
