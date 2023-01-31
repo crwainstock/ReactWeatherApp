@@ -5,6 +5,7 @@ export default function App() {
   const [loading, setLoading] = useState(false); //I'm not sure what to do with this.
   const [location, setLocation] = useState("");
   const [weather, setWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(""); //Or this.
 
   const handleChange = (e) => {
@@ -23,9 +24,18 @@ export default function App() {
     setWeather(data); //Seems to be working
   }
 
+  async function getForecast() {
+    let response = await fetch(
+      `api.openweathermap.org/data/2.5/forecast?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
+    );
+    let data = await response.json();
+    setForecast(data);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     getWeather();
+    getForecast();
     // console.log(location);
     // console.log(weather);
     setLocation(""); //empty input field
@@ -33,7 +43,7 @@ export default function App() {
 
   return (
     <div className="container justify-content-center">
-      <h1>What's the weather like right now?</h1>
+      <h1>Weather?</h1>
       <div className="row">
         <div id="form" className="col-4">
           <form onSubmit={handleSubmit}>
@@ -68,6 +78,7 @@ export default function App() {
                   {weather.main.temp && (
                     <img
                       src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                      alt="weather-icon"
                     />
                   )}
                 </div>
