@@ -53,7 +53,7 @@ export default function App() {
             </button>
           </form>
         </div>
-        <div className="col-5">
+        <div className="col-6">
           {weather && (
             <div className="card shadow p-3 mb-5 bg-white rounded">
               <div className="card-body">
@@ -64,10 +64,10 @@ export default function App() {
                     {(weather.main.temp.toFixed(1) * 1.8 + 32).toFixed(1)} °F
                   </h6>
                 </div>
-                {weather.main.temp < 0 ? (
-                  <img src="./icons8-cold-64.png" />
-                ) : (
-                  <img src="./icons8-weather-64.png" />
+                {weather.main.temp && (
+                  <img
+                    src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                  />
                 )}
               </div>
             </div>
@@ -78,8 +78,8 @@ export default function App() {
   );
 }
 // TODO:
-// 1. Put weather area together. Not working yet. Location working, errors with other stuff.
-// 2. Isn't console logging weather with data, but seems to be pulling it.
+//
+//
 // 3. Put code for errors.
 // 4. Look into what to do with loading...not sure.
 // 5. Styling.
