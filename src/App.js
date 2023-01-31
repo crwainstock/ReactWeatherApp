@@ -54,8 +54,8 @@ export default function App() {
           </form>
         </div>
         <div className="col-6" id="current-weather">
-          {weather && (
-            <div className="card shadow p-3 md-white rounded">
+          <div className="card shadow p-3 md-white rounded">
+            {weather && (
               <div className="card-body">
                 <h4 className="card-title">{weather.name}</h4>
                 <div className="row">
@@ -72,15 +72,18 @@ export default function App() {
                   )}
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
       <div id="five-day" className="col">
         <h2>5 Day Forecast</h2>
       </div>
       <footer>
-        <p>Coded by Crystal</p>
+        <p>
+          Coded by{" "}
+          <a href="https://www.linkedin.com/in/crwainstock/">Crystal</a>
+        </p>
         <p>
           Made with <a href="https://openweathermap.org/">Open Weather API</a>
         </p>
