@@ -28,7 +28,13 @@ export default function App() {
     let response = await fetch(
       `api.openweathermap.org/data/2.5/forecast?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
     );
-    let data = await response.json();
+    //I'm not sure what I'm doing here.
+    if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      console.log(message);
+      return message;
+    }
+    const data = await response.json();
     setForecast(data);
   }
 
@@ -91,13 +97,15 @@ export default function App() {
         {/* Make this area conditionally render */}
         <h2>5 Day Forecast</h2>
         <div className="row">
-        {forecast && (
-          <div className="col-3"></div>
-          <div className="col-3"></div>
-          <div className="col-3"></div>
-          <div className="col-3"></div>
-          <div className="col-3"></div>
-        )}
+          {forecast && (
+            <>
+              <div className="col-3"></div>
+              <div className="col-3"></div>
+              <div className="col-3"></div>
+              <div className="col-3"></div>
+              <div className="col-3"></div>
+            </>
+          )}
         </div>
       </div>
       <footer>
