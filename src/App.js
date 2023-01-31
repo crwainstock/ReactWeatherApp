@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <div className="container justify-content-center">
-      <h1>What's the weather?</h1>
+      <h1>What's the weather like right now?</h1>
       <div className="row">
         <div id="form" className="col-4">
           <form onSubmit={handleSubmit}>
@@ -53,9 +53,9 @@ export default function App() {
             </button>
           </form>
         </div>
-        <div className="col-6">
+        <div className="col-6" id="current-weather">
           {weather && (
-            <div className="card shadow p-3 mb-5 bg-white rounded">
+            <div className="card shadow p-3 md-white rounded">
               <div className="card-body">
                 <h4 className="card-title">{weather.name}</h4>
                 <div className="row">
@@ -73,6 +73,9 @@ export default function App() {
             </div>
           )}
         </div>
+      </div>
+      <div id="five-day" className="col">
+        <h2>5 Day Forecast</h2>
       </div>
     </div>
   );
