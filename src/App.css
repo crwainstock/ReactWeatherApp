@@ -72,11 +72,29 @@ footer p {
   }
   .row {
     flex-direction: column;
+    margin-top: 1rem;
   }
   .col-4 {
     max-width: 90%;
   }
   #form {
     margin-bottom: 2rem;
+  }
+  .col-6 {
+    max-width: 90%;
+    margin: auto;
+  }
+  .card {
+    height: 275px;
+  }
+  h2 {
+    margin-top: 1rem;
+  }
+  #forecast-card {
+    width: auto;
+    max-width: 90%;
+  }
+  footer {
+    margin-bottom: 1rem;
   }
 }
