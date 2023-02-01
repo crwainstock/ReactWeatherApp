@@ -129,7 +129,7 @@ export default function App() {
               className="card shadow p-3 md-white rounded"
               id="forecast-card"
             >
-              <h5>Tomorrow</h5>
+              <h5 id="day">Tomorrow</h5>
               <h5>{forecast.list[0].main.temp.toFixed(1)} °C</h5>
               <h5>
                 {(forecast.list[0].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
@@ -144,7 +144,7 @@ export default function App() {
               className="card shadow p-3 md-white rounded"
               id="forecast-card"
             >
-              <h5>Day After Tomorrow</h5>
+              <h5 id="day">Day 2</h5>
               <h5>{forecast.list[8].main.temp.toFixed(1)} °C</h5>
               <h5>
                 {(forecast.list[8].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
@@ -159,7 +159,7 @@ export default function App() {
               className="card shadow p-3 md-white rounded"
               id="forecast-card"
             >
-              <h5>Day 3</h5>
+              <h5 id="day">Day 3</h5>
               <h5>{forecast.list[16].main.temp.toFixed(1)} °C</h5>
               <h5>
                 {(forecast.list[16].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
@@ -174,7 +174,7 @@ export default function App() {
               className="card shadow p-3 md-white rounded"
               id="forecast-card"
             >
-              <h5>Day 4</h5>
+              <h5 id="day">Day 4</h5>
               <h5>{forecast.list[24].main.temp.toFixed(1)} °C</h5>
               <h5>
                 {(forecast.list[24].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
@@ -189,7 +189,7 @@ export default function App() {
               className="card shadow p-3 md-white rounded"
               id="forecast-card"
             >
-              <h5>Day 5</h5>
+              <h5 id="day">Day 5</h5>
               <h5>{forecast.list[32].main.temp.toFixed(1)} °C</h5>
               <h5>
                 {(forecast.list[32].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
