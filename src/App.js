@@ -16,34 +16,39 @@ export default function App() {
 
   //ASYNC FUNCTION VERSION
   async function getWeather() {
-    let response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
-    );
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      console.log(message);
-      return message;
+    try {
+      let response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
+      );
+      if (!response.ok) {
+        setError(`An error has occured: ${response.status}`);
+      } else {
+        let data = await response.json();
+        setWeather(data);
+      }
+    } catch (err) {
+      setError(`Server Error ${err.message}`);
     }
-    let data = await response.json();
-    // console.log(data); //Getting data, ok.
-    setWeather(data); //Seems to be working
   }
 
   async function getForecast() {
-    let response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
-    );
-    //I'm not sure what I'm doing here.
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      console.log(message);
-      return message;
-    }
-    const data = await response.json();
+    try {
+      let response = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
+      );
+      if (!response.ok) {
+        setError(`An error has occured: ${response.status}`);
+      } else {
+        const data = await response.json();
 
-    setForecast(data);
+        setForecast(data);
+      }
+    } catch (err) {
+      setError(`Server Error ${err.message}`);
+    }
 
     // Could I do something like this to format the date? But loop through the data (i)
+    // Calculating day of the week from UTC -- https://stackoverflow.com/questions/36389130/how-to-calculate-the-day-of-the-week-based-on-unix-time#:~:text=In%20summary%3A%20day%20of%20week,and%20minutes%20on%20T%20first.)
     // let date = new Intl.DateTimeFormat("en-US", {
     //   year: "numeric",
     //   month: "2-digit",
@@ -113,10 +118,21 @@ export default function App() {
           <h2>5 Day Forecast for {forecast.city.name}</h2>
           <div className="row">
             <div className="card shadow p-3 md-white rounded">
-              <h3>{forecast.list[0].dt}</h3>
+              <h3>Day of the week</h3>
               <h4>{forecast.list[0].main.temp.toFixed(1)} °C</h4>
+              <h4>
+                {(forecast.list[0].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
+                °F
+              </h4>
             </div>
-            <div className="card shadow p-3 md-white rounded"></div>
+            <div className="card shadow p-3 md-white rounded">
+              <h3>Day of the week</h3>
+              <h4>{forecast.list[7].main.temp.toFixed(1)} °C</h4>
+              <h4>
+                {(forecast.list[7].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
+                °F
+              </h4>
+            </div>
             <div className="card shadow p-3 md-white rounded"></div>
             <div className="card shadow p-3 md-white rounded"></div>
             <div className="card shadow p-3 md-white rounded"></div>
