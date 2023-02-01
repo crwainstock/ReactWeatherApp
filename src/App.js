@@ -16,6 +16,8 @@ export default function App() {
 
   //ASYNC FUNCTION VERSION
   async function getWeather() {
+    setWeather(null);
+    setLoading(true);
     try {
       let response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
@@ -29,9 +31,12 @@ export default function App() {
     } catch (err) {
       setError(`Server Error ${err.message}`);
     }
+    setLoading(false);
   }
 
   async function getForecast() {
+    setForecast(null);
+    setLoading(true);
     try {
       let response = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=5647a97d7c0510ac58b383eda8e00511&units=metric`
@@ -55,6 +60,7 @@ export default function App() {
     //   day: "2-digit",
     // }).format(forecast.list[i].dt); // 01/11/2021
     // console.log(date);
+    setLoading(false);
   }
 
   const handleSubmit = (e) => {
@@ -88,6 +94,7 @@ export default function App() {
             </button>
           </form>
           <div id="error">{error && <h2>{error}</h2>}</div>
+          <div id="loading">{loading && <h2>Loading...</h2>}</div>
         </div>
         <div className="col-6" id="current-weather">
           <div className="card shadow p-3 md-white rounded">
