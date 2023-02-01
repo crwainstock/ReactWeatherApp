@@ -1,3 +1,5 @@
+/* Default styling is for laptop */
+
 h1 {
   text-align: center;
   margin-top: 2rem;
@@ -61,4 +63,20 @@ footer {
 }
 footer p {
   margin-bottom: 0;
+}
+
+/* Mobile */
+@media only screen and (max-width: 650px) {
+  h1 {
+    margin-bottom: 1rem;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .col-4 {
+    max-width: 90%;
+  }
+  #form {
+    margin-bottom: 2rem;
+  }
 }

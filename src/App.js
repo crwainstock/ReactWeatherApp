@@ -70,6 +70,7 @@ export default function App() {
     // console.log(location);
     // console.log(weather);
     setLocation(""); //empty input field
+    setError("");
   };
 
   return (
