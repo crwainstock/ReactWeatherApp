@@ -87,6 +87,7 @@ export default function App() {
               Submit
             </button>
           </form>
+          <div id="error">{error && <h2>{error}</h2>}</div>
         </div>
         <div className="col-6" id="current-weather">
           <div className="card shadow p-3 md-white rounded">
