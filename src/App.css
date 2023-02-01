@@ -39,7 +39,15 @@ img {
   margin-bottom: 1rem;
   height: 245px;
 }
-
+.row {
+  justify-content: center;
+  margin-top: 2rem;
+}
+#forecast-card {
+  margin: 1rem;
+  width: 175px;
+  height: 275px;
+}
 footer {
   padding-top: 2rem;
   text-align: center;

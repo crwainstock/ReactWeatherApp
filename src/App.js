@@ -125,25 +125,81 @@ export default function App() {
         <div id="five-day" className="col">
           <h2>5 Day Forecast for {forecast.city.name}</h2>
           <div className="row">
-            <div className="card shadow p-3 md-white rounded">
-              <h3>Day of the week</h3>
-              <h4>{forecast.list[0].main.temp.toFixed(1)} °C</h4>
-              <h4>
+            <div
+              className="card shadow p-3 md-white rounded"
+              id="forecast-card"
+            >
+              <h5>Tomorrow</h5>
+              <h5>{forecast.list[0].main.temp.toFixed(1)} °C</h5>
+              <h5>
                 {(forecast.list[0].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
                 °F
-              </h4>
+              </h5>
+              <img
+                src={`http://openweathermap.org/img/wn/${forecast.list[0].weather[0].icon}@2x.png`}
+                alt="weather-icon"
+              />
             </div>
-            <div className="card shadow p-3 md-white rounded">
-              <h3>Day of the week</h3>
-              <h4>{forecast.list[7].main.temp.toFixed(1)} °C</h4>
-              <h4>
-                {(forecast.list[7].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
+            <div
+              className="card shadow p-3 md-white rounded"
+              id="forecast-card"
+            >
+              <h5>Day After Tomorrow</h5>
+              <h5>{forecast.list[8].main.temp.toFixed(1)} °C</h5>
+              <h5>
+                {(forecast.list[8].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
                 °F
-              </h4>
+              </h5>
+              <img
+                src={`http://openweathermap.org/img/wn/${forecast.list[8].weather[0].icon}@2x.png`}
+                alt="weather-icon"
+              />
             </div>
-            <div className="card shadow p-3 md-white rounded"></div>
-            <div className="card shadow p-3 md-white rounded"></div>
-            <div className="card shadow p-3 md-white rounded"></div>
+            <div
+              className="card shadow p-3 md-white rounded"
+              id="forecast-card"
+            >
+              <h5>Day 3</h5>
+              <h5>{forecast.list[16].main.temp.toFixed(1)} °C</h5>
+              <h5>
+                {(forecast.list[16].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
+                °F
+              </h5>
+              <img
+                src={`http://openweathermap.org/img/wn/${forecast.list[16].weather[0].icon}@2x.png`}
+                alt="weather-icon"
+              />
+            </div>
+            <div
+              className="card shadow p-3 md-white rounded"
+              id="forecast-card"
+            >
+              <h5>Day 4</h5>
+              <h5>{forecast.list[24].main.temp.toFixed(1)} °C</h5>
+              <h5>
+                {(forecast.list[24].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
+                °F
+              </h5>
+              <img
+                src={`http://openweathermap.org/img/wn/${forecast.list[24].weather[0].icon}@2x.png`}
+                alt="weather-icon"
+              />
+            </div>
+            <div
+              className="card shadow p-3 md-white rounded"
+              id="forecast-card"
+            >
+              <h5>Day 5</h5>
+              <h5>{forecast.list[32].main.temp.toFixed(1)} °C</h5>
+              <h5>
+                {(forecast.list[32].main.temp.toFixed(1) * 1.8 + 32).toFixed(1)}{" "}
+                °F
+              </h5>
+              <img
+                src={`http://openweathermap.org/img/wn/${forecast.list[32].weather[0].icon}@2x.png`}
+                alt="weather-icon"
+              />
+            </div>
           </div>
         </div>
       )}
